@@ -112,33 +112,61 @@ p {
     width: 100%;
     clear: both;
 }
-    .characteristics-link {
-           width: 100%;
-            text-align: center;
-            margin-bottom: 30px;
-           clear: both;
-        }
-        .characteristics-link a {
-          margin: 0 10px;
-            padding: 12px 20px;
-            background-color: #1a73e8;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: background-color 0.3s ease;
-            font-weight: 500;
-             border: none;
-        }
+.characteristics-link {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 30px;
+        clear: both;
+    }
+    .characteristics-link a {
+        margin: 0 10px;
+        padding: 12px 20px;
+        background-color: #1a73e8;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+        font-weight: 500;
+            border: none;
+    }
 
-        .characteristics-link a:hover {
-            background-color: #0b5394;
-        }
-         .dark-theme .characteristics-link a {
-             background-color: #00c6ff;
-        }
-          .dark-theme .characteristics-link a:hover {
-            background-color: #0086b3;
-        }
+    .characteristics-link a:hover {
+        background-color: #0b5394;
+    }
+        .dark-theme .characteristics-link a {
+            background-color: #00c6ff;
+    }
+        .dark-theme .characteristics-link a:hover {
+        background-color: #0086b3;
+    }
+    .form button {
+        padding: 12px 20px;
+        background-color: #1a73e8;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1em;
+        text-align: center;
+        align-items: center;
+        transition: background-color 0.3s ease;
+        font-family: inherit;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+    
+    .form button:hover {
+        background-color: #0b5394;
+    }
+    
+    .dark-theme .form button {
+        background-color: #00c6ff;
+    }
+    
+    .dark-theme .form button:hover {
+        background-color: #0086b3;
+    }
 
 image {
     text-align: center;
