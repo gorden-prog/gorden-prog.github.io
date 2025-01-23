@@ -333,8 +333,8 @@ li {
         }
     
         .menu a {
-            margin: 5px 0;
-            width: 80%; 
+            margin: 15px 0;
+            width: 50%;
             text-align: center;
         }
     
@@ -370,4 +370,6 @@ li {
             margin-bottom: 20px;
             text-align: center; 
         }
+        
+        
     }
