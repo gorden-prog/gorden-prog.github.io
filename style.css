@@ -361,4 +361,13 @@ li {
             margin-bottom: 10px; 
             padding-top: 10px; 
         }
+        .software, .terms, .structure, .characteristics {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            text-align: center; 
+        }
     }
