@@ -306,12 +306,12 @@ th {
 }
 
 li {
-    margin-bottom: 5px; /* Отступ между li */
-     margin-left: 20px; /* Отступ слева для li */
+    margin-bottom: 5px;
+     margin-left: 20px;
  }
   ul {
-        margin-bottom: 10px; /* Отступ между ul */
-         padding-left: 20px; /* Отступ слева для ul */
+        margin-bottom: 10px; 
+         padding-left: 20px;
      }
      @media (max-width: 768px) {
         .container {
@@ -328,13 +328,13 @@ li {
         }
     
         .menu {
-            flex-direction: column; /* Размещаем ссылки в столбик */
+            flex-direction: column; 
             align-items: center;
         }
     
         .menu a {
             margin: 5px 0;
-            width: 80%; /* Растягиваем ссылки на всю ширину */
+            width: 80%; 
             text-align: center;
         }
     
@@ -354,5 +354,11 @@ li {
             position: static;
             text-align: center;
             margin-bottom: 10px;
+        }
+        .lang-theme-controls {
+            position: static;
+            text-align: center; 
+            margin-bottom: 10px; 
+            padding-top: 10px; 
         }
     }
