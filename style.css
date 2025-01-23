@@ -313,3 +313,46 @@ li {
         margin-bottom: 10px; /* Отступ между ul */
          padding-left: 20px; /* Отступ слева для ul */
      }
+     @media (max-width: 768px) {
+        .container {
+            width: 95%;
+            padding: 20px;
+        }
+    
+        h1 {
+            font-size: 2em;
+        }
+    
+        p {
+            font-size: 1em;
+        }
+    
+        .menu {
+            flex-direction: column; /* Размещаем ссылки в столбик */
+            align-items: center;
+        }
+    
+        .menu a {
+            margin: 5px 0;
+            width: 80%; /* Растягиваем ссылки на всю ширину */
+            text-align: center;
+        }
+    
+        .computer-image img {
+            max-width: 80%;
+        }
+    
+        .form {
+            width: 100%;
+            margin-left: 0;
+        }
+    
+        table {
+            font-size: 0.9em;
+        }
+        .lang-theme-controls {
+            position: static;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+    }
