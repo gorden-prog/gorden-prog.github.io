@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Меню</title>
+  <style>
+    body {
+      background-color: #46466d;
+      color: #ffffff;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 50px;
+      margin-bottom: 40px;
+    }
+
+    .button {
+      background: linear-gradient(to right, #3e3e70, #5c5cb0);
+      border: none;
+      border-radius: 12px;
+      padding: 12px 28px;
+      margin: 10px;
+      color: white;
+      font-size: 50px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.3s;
+    }
+
+    .button:hover {
+      background: linear-gradient(to right, #5c5cb0, #7878d1);
+      transform: scale(1.05);
+    }
+
+    .question {
+      position: absolute;
+      bottom: 20px;
+      font-size: 48px;
+      cursor: pointer;
+      text-decoration: none;
+      color: #ffffff;
+      transition: color 0.2s;
+    }
+
+    .question:hover {
+      color: #facc15;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🧠 Добро пожаловать!</h1>
+
+  <button class="button" onclick="location.href='game.html'">Играть</button>
+  <button class="button" onclick="location.href='https://github.com/gorden-prog/homework-25-05-2025/blob/main/main.py'">Открыть код</button>
+
+  <a class="question" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">?</a>
+
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🧠 Игра на память</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #46466d;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .screen {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .screen.active {
+      display: flex;
+    }
+    button {
+      background: linear-gradient(to right, #3e3e70, #5c5cb0);
+      border: none;
+      border-radius: 12px;
+      padding: 10px 24px;
+      color: #fff;
+      font-size: 15px;
+      font-weight: bold;
+      margin: 10px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: linear-gradient(to right, #5c5cb0, #7878d1);
+    }
+    button:active {
+      background-color: #4b4b8d;
+    }
+    input {
+      background-color: #2a2a4a;
+      border: 2px solid #44446b;
+      border-radius: 10px;
+      padding: 10px;
+      color: #ffffff;
+      font-size: 16px;
+      margin: 10px 0;
+    }
+    .sequence {
+      font-size: 36px;
+      font-family: 'Courier New', Courier, monospace;
+      margin: 20px;
+    }
+    .feedback {
+      margin-top: 20px;
+      font-size: 18px;
+      height: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="screen active" id="menuScreen">
+    <h2>Выберите уровень сложности</h2>
+    <button onclick="startGame(1)">1 — Только цифры</button>
+    <button onclick="startGame(2)">2 — Цифры и буквы</button>
+    <button onclick="startGame(3)">3 — Все символы</button>
+  </div>
+
+  <div class="screen" id="sequenceScreen">
+    <div id="infoLabel"></div>
+    <div class="sequence" id="sequenceLabel"></div>
+  </div>
+
+  <div class="screen" id="inputScreen">
+    <div id="levelInfo"></div>
+    <div id="inputPrompt"></div>
+    <input type="text" id="userInput" />
+    <button onclick="checkInput()">Проверить</button>
+    <div class="feedback" id="feedbackLabel"></div>
+  </div>
+
+  <script>
+    let levelMode = 1;
+    let score = 0;
+    let level = 1;
+    let sequence = "";
+
+    const menuScreen = document.getElementById('menuScreen');
+    const sequenceScreen = document.getElementById('sequenceScreen');
+    const inputScreen = document.getElementById('inputScreen');
+
+    function showScreen(screen) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      screen.classList.add('active');
+    }
+
+    function startGame(mode) {
+      levelMode = mode;
+      score = 0;
+      level = 1;
+      nextLevel();
+    }
+
+    function generateSequence(length) {
+      let chars = '';
+      if (levelMode === 1) {
+        chars = '0123456789';
+      } else if (levelMode === 2) {
+        chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      } else {
+        chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-={}[]:";\'<>?,./\\|`~';
+      }
+      return Array.from({length}, () => chars[Math.floor(Math.random() * chars.length)]).join('');
+    }
+
+    function nextLevel() {
+      sequence = generateSequence(level);
+      document.getElementById('infoLabel').textContent = `Уровень ${level} | Очки: ${score}`;
+      const seqLabel = document.getElementById('sequenceLabel');
+      seqLabel.textContent = sequence;
+      showScreen(sequenceScreen);
+      setTimeout(() => {
+        seqLabel.textContent = "";
+        showInputScreen();
+      }, 1500);
+    }
+
+    function showInputScreen() {
+      document.getElementById('levelInfo').textContent = `Уровень ${level} | Очки: ${score}`;
+      document.getElementById('inputPrompt').textContent = `Введите ${level} символ(а/ов):`;
+      document.getElementById('userInput').value = "";
+      document.getElementById('feedbackLabel').textContent = "";
+      showScreen(inputScreen);
+      document.getElementById('userInput').focus();
+    }
+
+    function checkInput() {
+      const userInput = document.getElementById('userInput').value;
+      const feedback = document.getElementById('feedbackLabel');
+      if (userInput.length !== level) {
+        feedback.textContent = `Введите ровно ${level} символ(а/ов)!`;
+        feedback.style.color = '#facc15';
+        return;
+      }
+
+      if (userInput === sequence) {
+        score++;
+        level++;
+        feedback.textContent = "Правильно! Переходим на следующий уровень";
+        feedback.style.color = '#34d399';
+        setTimeout(nextLevel, 1500);
+      } else {
+        feedback.textContent = `Неправильно! Правильная последовательность: ${sequence}\nВаш счёт: ${score}`;
+        feedback.style.color = '#f87171';
+        setTimeout(() => showScreen(menuScreen), 3000);
+      }
+    }
+  </script>
+</body>
+</html>
